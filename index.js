@@ -4,6 +4,7 @@ const path = require('node:path')
 require('dotenv').config()
 
 const { Client, GatewayIntentBits } = require('discord.js')
+const Canvas = require('@napi-rs/canvas')
 
 const client = new Client({ intents: [
     GatewayIntentBits.Guilds,
@@ -20,7 +21,9 @@ for (const evtfile of eventFiles) {
 
     if (event.once) {
         client.once(event.name, (...args) => event.execute(...args))
-        return
+    } else {
+        client.on(event.name, (...args) => event.execute(...args))
     }
-    client.on(event.name, (...args) => event.execute(...args))
 }
+
+client.login(process.env.TOKEN)
