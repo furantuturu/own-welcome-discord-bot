@@ -4,7 +4,6 @@ const path = require('node:path')
 require('dotenv').config()
 
 const { Client, GatewayIntentBits } = require('discord.js')
-const Canvas = require('@napi-rs/canvas')
 
 const client = new Client({ intents: [
     GatewayIntentBits.Guilds,
