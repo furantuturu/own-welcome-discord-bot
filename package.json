@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "slash": "node deploy-commands.js",
+    "bot": "node ."
   },
   "keywords": [],
   "author": "Haemoffy",
@@ -12,7 +13,8 @@
   "dependencies": {
     "@napi-rs/canvas": "^0.1.53",
     "discord.js": "^14.15.3",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "undici": "^6.19.4"
   },
   "devDependencies": {
     "eslint": "^9.7.0"
