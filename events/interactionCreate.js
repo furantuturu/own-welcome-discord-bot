@@ -29,16 +29,29 @@ module.exports = {
 
             context.fillText(
                 `${interaction.user.username} just joined the server`,
-                canvas.width / 8, canvas.height - 70,
+                canvas.width / 8, canvas.height - 50,
                 canvas.width * .75
             )
 
             //* user avatar image
+            //* encircling avatar image bg
+            context.beginPath()
+            context.arc(canvas.width / 2, 120, 100 + 10, 0, Math.PI * 2, true)
+            context.closePath()
+            context.clip()
+
+            //* user avatar image bg
+            context.fillStyle = '#222222'
+            
+            context.fillRect(0, 0, canvas.width, canvas.height)
+            
+            //* encircling avatar image
             context.beginPath()
             context.arc(canvas.width / 2, 120, 100, 0, Math.PI * 2, true)
             context.closePath()
             context.clip()
 
+            //* get user avatar image and draw
             const { body } = await request(interaction.user.displayAvatarURL({ extension: 'jpg' }))
             const avatar = await Canvas.loadImage(await body.arrayBuffer())
 
