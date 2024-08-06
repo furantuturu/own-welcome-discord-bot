@@ -1,5 +1,5 @@
 # Mini Project Series 11
-## Welcome bot
+## Welcome discord bot
 
 **How it looked like:**
 
